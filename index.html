@@ -121,16 +121,6 @@
         Smart Queue
       </button>
 
-      <div class="nav-group-label">Patients</div>
-      <button class="nav-item w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-sm font-semibold transition-all mt-0.5" data-view="patient-reg">
-        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>
-        Register Patient
-      </button>
-      <button class="nav-item w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-sm font-semibold transition-all mt-0.5" data-view="patient-dir">
-        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-        Patient Records
-      </button>
-
       <div class="nav-group-label">Appointments</div>
       <button class="nav-item w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-sm font-semibold transition-all mt-0.5" data-view="apt-booking">
         <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
@@ -157,10 +147,10 @@
         Staff Directory
       </button>
 
-      <div class="nav-group-label">System</div>
-      <button class="nav-item w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-sm font-semibold transition-all mt-0.5" data-view="settings">
-        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
-        System Settings
+      <div class="nav-group-label">Clinical</div>
+      <button class="nav-item w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-sm font-semibold transition-all mt-0.5" data-view="consultation">
+        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        Consultation
       </button>
 
       <div class="mt-3 px-0">
@@ -428,53 +418,20 @@
           <form id="apt-booking-form" class="space-y-4 hidden" onsubmit="App.actions.submitAptBooking(event)">
             <input id="ab-resolved-patient-id" type="hidden" />
 
-            <div class="text-xs font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100 pb-2">Auto-filled Patient Details</div>
-            <div class="grid grid-cols-2 gap-4">
-              <div>
-                <label class="form-label">Full Name</label>
-                <input id="ab-name" type="text" class="form-input readonly" readonly />
-              </div>
-              <div>
-                <label class="form-label">Phone Number</label>
-                <input id="ab-phone" type="text" class="form-input readonly" readonly />
-              </div>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-              <div>
-                <label class="form-label">Blood Group</label>
-                <input id="ab-blood" type="text" class="form-input readonly" readonly />
-              </div>
-              <div>
-                <label class="form-label">Gender</label>
-                <input id="ab-gender" type="text" class="form-input readonly" readonly />
-              </div>
-            </div>
-
             <div class="text-xs font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100 pb-2 pt-1">Appointment Details</div>
-            <div class="grid grid-cols-2 gap-4">
-              <div>
-                <label class="form-label">Department *</label>
-                <select id="ab-dept" class="form-select" required>
-                  <option value="">Select department...</option>
-                  <option>General Outpatient</option>
-                  <option>Paediatrics</option>
-                  <option>Obstetrics &amp; Gynaecology</option>
-                  <option>Laboratory</option>
-                  <option>Pharmacy</option>
-                  <option>Dental</option>
-                  <option>Ophthalmology</option>
-                </select>
-              </div>
-              <div>
-                <label class="form-label">Assign Doctor *</label>
-                <select id="ab-doctor" class="form-select" required>
-                  <option value="">Select doctor...</option>
-                  <option>Dr. Okonkwo</option>
-                  <option>Dr. Sule</option>
-                  <option>Dr. Adeyemi</option>
-                  <option>Dr. Musa</option>
-                </select>
-              </div>
+            <div>
+              <label class="form-label">Doctor Name *</label>
+              <select id="ab-doctor" class="form-select" required>
+                <option value="">Select doctor...</option>
+                <option>Dr. Okonkwo</option>
+                <option>Dr. Sule</option>
+                <option>Dr. Adeyemi</option>
+                <option>Dr. Musa</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label">Service *</label>
+              <input id="ab-service" type="text" class="form-input" placeholder="e.g. General Consultation" required />
             </div>
             <div class="grid grid-cols-2 gap-4">
               <div>
@@ -485,19 +442,6 @@
                 <label class="form-label">Appointment Time *</label>
                 <input id="ab-time" type="time" class="form-input" required />
               </div>
-            </div>
-            <div>
-              <label class="form-label">Appointment Type *</label>
-              <select id="ab-type" class="form-select" required>
-                <option value="">Select type...</option>
-                <option>New Consultation</option>
-                <option>Follow-up</option>
-                <option>Lab / Investigation</option>
-                <option>Procedure</option>
-                <option>Antenatal</option>
-                <option>Vaccination</option>
-                <option>Emergency</option>
-              </select>
             </div>
 
             <div id="ab-api-error" class="hidden bg-red-50 border border-red-200 text-red-700 text-xs font-semibold rounded-lg px-3 py-2.5"></div>
@@ -598,43 +542,31 @@
           <div class="text-xs font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100 pb-2">Personal Information</div>
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <label class="form-label">Full Name *</label>
-              <input id="sr-name" type="text" class="form-input" placeholder="e.g. Dr. Amara Obi" required />
+              <label class="form-label">First Name *</label>
+              <input id="sr-first-name" type="text" class="form-input" placeholder="e.g. Amara" required />
             </div>
             <div>
-              <label class="form-label">Date of Birth</label>
-              <input id="sr-dob" type="date" class="form-input" />
+              <label class="form-label">Last Name *</label>
+              <input id="sr-last-name" type="text" class="form-input" placeholder="e.g. Obi" required />
             </div>
           </div>
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <label class="form-label">Gender</label>
-              <select id="sr-gender" class="form-select">
+              <label class="form-label">Email *</label>
+              <input id="sr-email" type="email" class="form-input" placeholder="staff@hospital.com" required />
+            </div>
+            <div>
+              <label class="form-label">Gender *</label>
+              <select id="sr-gender" class="form-select" required>
                 <option value="">Select...</option>
                 <option>Male</option><option>Female</option><option>Other</option>
               </select>
             </div>
-            <div>
-              <label class="form-label">Phone *</label>
-              <input id="sr-phone" type="tel" class="form-input" placeholder="e.g. 0801 234 5678" required />
-            </div>
           </div>
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <label class="form-label">Email</label>
-              <input id="sr-email" type="email" class="form-input" placeholder="staff@hospital.com" />
-            </div>
-            <div>
-              <label class="form-label">Residential Address</label>
-              <input id="sr-address" type="text" class="form-input" placeholder="Street, City" />
-            </div>
-          </div>
-
-          <div class="text-xs font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100 pb-2 pt-1">Identification</div>
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label class="form-label">NIN</label>
-              <input id="sr-nin" type="text" class="form-input" placeholder="National ID Number" />
+              <label class="form-label">Password *</label>
+              <input id="sr-password" type="password" class="form-input" placeholder="Set initial password" required />
             </div>
             <div>
               <label class="form-label">Staff ID</label>
@@ -642,76 +574,23 @@
             </div>
           </div>
 
-          <div class="text-xs font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100 pb-2 pt-1">Employment Information</div>
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label class="form-label">Staff Category / Role *</label>
-              <select id="sr-role" class="form-select" required onchange="App.ui.updateJobTitleOptions()">
-                <option value="">Select category...</option>
-                <option>Admin</option>
-                <option>Doctor</option>
-                <option>Nurse</option>
-                <option>Receptionist</option>
-                <option>Cashier</option>
-                <option>Pharmacist</option>
-                <option>Lab Scientist</option>
-                <option>Administrator</option>
-                <option>Medical Records Officer</option>
-                <option>Radiographer</option>
-                <option>Accountant</option>
-              </select>
-            </div>
-            <div>
-              <label class="form-label">Job Title *</label>
-              <select id="sr-job-title" class="form-select" required>
-                <option value="">Select role first...</option>
-              </select>
-            </div>
-          </div>
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label class="form-label">Department *</label>
-              <select id="sr-dept" class="form-select" required>
-                <option value="">Select department...</option>
-                <option>General Outpatient</option>
-                <option>Paediatrics</option>
-                <option>Obstetrics &amp; Gynaecology</option>
-                <option>Laboratory</option>
-                <option>Pharmacy</option>
-                <option>Dental</option>
-                <option>Ophthalmology</option>
-                <option>Administration</option>
-                <option>Radiology</option>
-                <option>Accounts</option>
-              </select>
-            </div>
-            <div>
-              <label class="form-label">Employment Type *</label>
-              <select id="sr-emp-type" class="form-select" required>
-                <option value="">Select...</option>
-                <option>Full-time</option>
-                <option>Part-time</option>
-                <option>Contract</option>
-                <option>Intern</option>
-                <option>Locum</option>
-              </select>
-            </div>
-          </div>
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label class="form-label">Date Employed</label>
-              <input id="sr-date-employed" type="date" class="form-input" />
-            </div>
-            <div>
-              <label class="form-label">Shift *</label>
-              <select id="sr-shift" class="form-select" required>
-                <option value="">Select shift...</option>
-                <option>Morning (6am – 2pm)</option>
-                <option>Afternoon (2pm – 10pm)</option>
-                <option>Night (10pm – 6am)</option>
-                <option>On-Call</option>
-              </select>
-            </div>
+          <div class="text-xs font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100 pb-2 pt-1">Role</div>
+          <div>
+            <label class="form-label">Staff Role *</label>
+            <select id="sr-role" class="form-select" required>
+              <option value="">Select role...</option>
+              <option>Admin</option>
+              <option>Doctor</option>
+              <option>Nurse</option>
+              <option>Receptionist</option>
+              <option>Cashier</option>
+              <option>Pharmacist</option>
+              <option>Lab Scientist</option>
+              <option>Administrator</option>
+              <option>Medical Records Officer</option>
+              <option>Radiographer</option>
+              <option>Accountant</option>
+            </select>
           </div>
 
           <div id="sr-api-note" class="bg-amber-50 border border-amber-200 text-amber-700 text-xs font-semibold rounded-lg px-3 py-2.5">
@@ -778,6 +657,96 @@
               </tr>
             </thead>
             <tbody id="patient-dir-tbody" class="divide-y divide-slate-50 text-sm"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="view-consultation" class="view max-w-2xl space-y-5">
+      <div class="section-card">
+        <div class="section-header">
+          <span class="section-title">Consultation Record</span>
+          <span class="text-[10px] text-slate-400">Record patient consultation details</span>
+        </div>
+        <form id="consultation-form" class="p-6 space-y-5" onsubmit="App.actions.submitConsultation(event)">
+
+          <div class="text-xs font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100 pb-2">Patient &amp; Appointment</div>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="form-label">Patient *</label>
+              <input id="cons-patient" type="text" class="form-input" placeholder="Patient name or ID" required />
+            </div>
+            <div>
+              <label class="form-label">Appointment</label>
+              <input id="cons-appointment" type="text" class="form-input" placeholder="Appointment ID or ref." />
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="form-label">Queue #</label>
+              <input id="cons-queue" type="text" class="form-input" placeholder="e.g. Q-042" />
+            </div>
+            <div>
+              <label class="form-label">Doctor Name *</label>
+              <select id="cons-doctor" class="form-select" required>
+                <option value="">Select doctor...</option>
+                <option>Dr. Okonkwo</option>
+                <option>Dr. Sule</option>
+                <option>Dr. Adeyemi</option>
+                <option>Dr. Musa</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="text-xs font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100 pb-2 pt-1">Clinical Details</div>
+          <div>
+            <label class="form-label">Symptoms *</label>
+            <textarea id="cons-symptoms" class="form-input" rows="3" placeholder="Describe presenting symptoms..." required style="resize:vertical;"></textarea>
+          </div>
+          <div>
+            <label class="form-label">Diagnosis *</label>
+            <textarea id="cons-diagnosis" class="form-input" rows="3" placeholder="Enter diagnosis..." required style="resize:vertical;"></textarea>
+          </div>
+          <div>
+            <label class="form-label">Prescription</label>
+            <textarea id="cons-prescription" class="form-input" rows="3" placeholder="Medications, dosage, duration..." style="resize:vertical;"></textarea>
+          </div>
+          <div>
+            <label class="form-label">Notes</label>
+            <textarea id="cons-notes" class="form-input" rows="3" placeholder="Additional clinical notes, follow-up instructions..." style="resize:vertical;"></textarea>
+          </div>
+
+          <div id="cons-api-error" class="hidden bg-red-50 border border-red-200 text-red-700 text-xs font-semibold rounded-lg px-3 py-2.5"></div>
+
+          <div class="flex justify-end gap-3 pt-2">
+            <button type="button" class="btn btn-ghost" onclick="document.getElementById('consultation-form').reset(); document.getElementById('cons-api-error').classList.add('hidden');">Clear</button>
+            <button type="submit" id="cons-submit-btn" class="btn btn-primary">
+              <span id="cons-submit-text">Save Consultation</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="section-card">
+        <div class="section-header">
+          <span class="section-title">Consultation History</span>
+          <input id="cons-search" type="text" placeholder="Search..." class="form-input text-xs py-1.5 px-3 w-44" oninput="App.ui.renderConsultations()" />
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left">
+            <thead class="table-header">
+              <tr>
+                <th>Date</th>
+                <th>Patient</th>
+                <th>Doctor</th>
+                <th>Diagnosis</th>
+                <th>Queue #</th>
+                <th class="text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="cons-tbody" class="divide-y divide-slate-50 text-sm">
+              <tr><td colspan="6" class="text-center py-10 text-sm text-slate-400">No consultations recorded yet.</td></tr>
+            </tbody>
           </table>
         </div>
       </div>
@@ -1084,7 +1053,7 @@
 
 // ─── ENVIRONMENT CONFIG ───
 const CONFIG = {
-  BASE_URL: 'https://careflow-api-4.onrender.com/careflow',
+  BASE_URL: 'https://careflow-api-5.onrender.com/careflow',
   TOKEN_KEY: 'careflow_jwt_token',
   STAFF_KEY: 'careflow_v3_staff',
   SETTINGS_KEY: 'careflow_v3_settings',
@@ -1102,9 +1071,7 @@ const Auth = (() => {
 
   function logout() {
     localStorage.removeItem(CONFIG.TOKEN_KEY);
-    // location.reload(); // <-- STOPPED INFINITE REFRESH HERE
-    console.warn("Logout triggered (Token removed), but page reload prevented.");
-    // Optional: Trigger UI to show login modal here if you build one
+    location.reload();
   }
 
   async function login(username, password) {
@@ -1366,6 +1333,7 @@ const PAGE_META = {
   'queue':        ['Master Queue Log',     'Full audit log of all patients processed today'],
   'staff-reg':    ['Register Staff',       'Add a new staff member — system generates Staff ID'],
   'staff-dir':    ['Staff Directory',      'View and manage all registered clinic staff'],
+  'consultation': ['Consultation',         'Record patient consultation, diagnosis and prescription'],
   'settings':     ['System Settings',      'Configure operational thresholds and preferences'],
 };
 
@@ -2028,10 +1996,6 @@ const App = (() => {
         form.classList.remove('hidden');
 
         document.getElementById('ab-resolved-patient-id').value = patient.id;
-        document.getElementById('ab-name').value   = patient.name;
-        document.getElementById('ab-phone').value  = patient.phone || '--';
-        document.getElementById('ab-blood').value  = patient.bloodGroup || 'Unknown';
-        document.getElementById('ab-gender').value = patient.gender || '--';
       } catch (err) {
         resultDiv.innerHTML = `
           <div class="lookup-result not-found flex items-center gap-3">
@@ -2071,13 +2035,11 @@ const App = (() => {
       }
 
       const payload = {
-        patientId:       patientApiId,
-        department:      document.getElementById('ab-dept').value,
-        doctor:          document.getElementById('ab-doctor').value,
-        date:            document.getElementById('ab-date').value,
-        time:            document.getElementById('ab-time').value,
-        appointmentType: document.getElementById('ab-type').value,
-        patientName:     document.getElementById('ab-name').value,
+        patientId: patientApiId,
+        doctor:    document.getElementById('ab-doctor').value,
+        service:   document.getElementById('ab-service').value,
+        date:      document.getElementById('ab-date').value,
+        time:      document.getElementById('ab-time').value,
       };
 
       ui.setLoading('ab-submit-btn', 'ab-submit-text', true, 'Book Appointment');
